@@ -8,6 +8,18 @@
 
 ![image](https://user-images.githubusercontent.com/48191157/74038023-d01a5c80-4a02-11ea-9a7c-ac2d1e6be308.png)
 
+    IEnumerator Start () {				//미사일 생성
+	while (true) {
+	Instantiate (prefab);
+		prefab.transform.position = new Vector3 (Random.Range (-100.0f, 200.0f), 200.0f, Random.Range (-100.0f, 200.0f));
+			yield return new WaitForSeconds(interval);
+			intsum += interval;
+			if (intsum == 500){
+				yield break;
+			}
+		}	
+	}
+
     void OnCollisionEnter(Collision other)
   	{
 		Instantiate (prefab, transform.position, Quaternion.identity);
